@@ -79,19 +79,7 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
         items: [
           {
             title: "General",
-            url: "#",
-          },
-          {
-            title: "Team",
-            url: "#",
-          },
-          {
-            title: "Billing",
-            url: "#",
-          },
-          {
-            title: "Limits",
-            url: "#",
+            url: "/dashboard/settings",
           },
         ],
       },
