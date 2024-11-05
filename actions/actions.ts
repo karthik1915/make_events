@@ -31,9 +31,7 @@ export const signUpAction = async (formData: FormData): Promise<void> => {
 
   if (error) {
     console.error(error.message);
-    alert(error.message); // Display error message to user
   } else {
-    // Redirect on successful sign-up
     redirect("/dashboard");
   }
 };

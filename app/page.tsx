@@ -13,7 +13,7 @@ export default async function Index() {
 
   return (
     <>
-      <nav className="max-w-screen-2xl flex flex-row items-center justify-between px-4 py-5">
+      <nav className="max-w-screen-2xl flex flex-row items-center justify-between px-4 py-5 mx-auto">
         <Logo />
         <div className="flex items-center gap-2">
           <ThemeSwitcher variant="secondary" />
