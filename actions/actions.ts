@@ -12,12 +12,12 @@ const supabase = supaClient(
 );
 
 export const signUpAction = async (formData: FormData): Promise<void> => {
+  const first_name = formData.get("name")?.toString();
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
 
   if (!email || !password) {
     console.error("Email and password are required");
-    alert("Email and password are required"); // Notify user directly
     return;
   }
 
@@ -25,14 +25,17 @@ export const signUpAction = async (formData: FormData): Promise<void> => {
     email,
     password,
     options: {
-      emailRedirectTo: `${(await headers()).get("origin")}/auth/callback`,
+      data: {
+        first_name: first_name,
+      },
     },
   });
 
   if (error) {
-    console.error(error.message);
+    console.error(error.code + " " + error.message);
+    return encodedRedirect("error", "/sign-up", error.message);
   } else {
-    redirect("/dashboard");
+    return redirect("/dashboard");
   }
 };
 
